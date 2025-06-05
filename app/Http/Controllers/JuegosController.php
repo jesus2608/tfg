@@ -48,7 +48,7 @@ public function juegos(){
         $juego = new juegos();
         $juego->titulo = $request->titulo;
         $juego -> descripcion  = $request->descripcion;
-        $juego-> formato = $request-> formato;
+        $juego-> tipo = $request-> formato;
         $juego -> consola = $request -> consola;
         $juego -> genero = $request -> genero;
         $juego -> estado = $request-> estado;
