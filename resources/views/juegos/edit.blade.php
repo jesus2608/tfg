@@ -23,7 +23,7 @@
 
     <div class="max-w-3xl mx-auto bg-white p-8 rounded shadow border border-blue-200">
 
-        <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">Edita tu juego, compa</h1>
+        <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">Edita tu juego.</h1>
 
         <form action="{{ route('juegos.update', $juego->id) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
             @csrf
