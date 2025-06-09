@@ -30,13 +30,15 @@
                 <a href="{{ route('juegos.index') }}" class="hover:text-orange-400 transition">Listado de juegos</a>
                 <a href="{{ route('usuarios.index') }}" class="hover:text-orange-400 transition">Listado de usuarios</a>
                 <a href="{{ route('chat.index', 1) }}" class="hover:text-orange-400 transition">Hacer un reporte</a>
-
+                @auth
+                    
+                
                 <form action="{{ route('logout') }}" method="post" class="inline-block">
     @csrf
     <input type="submit" value="Cerrar sesión"
         class="bg-gradient-to-r from-blue-600 to-blue-500 text-white py-2 px-5 rounded-xl shadow hover:from-blue-700 hover:to-blue-600 transition duration-300 ease-in-out font-semibold cursor-pointer">
 </form>
-            </nav>
+          @endauth  </nav>
         </div>
     </header>
 
