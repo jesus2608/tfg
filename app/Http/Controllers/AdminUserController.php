@@ -47,6 +47,6 @@ class AdminUserController extends Controller
         $user = User::find($id);
          $user->juegos()->delete(); 
         $user->delete();
-        return redirect()->view('auth.admin.index')->with('success', 'Usuario eliminado.');
+        return redirect('/usuarios');
     }
 }

@@ -52,7 +52,6 @@ public function juegos(){
     'consola' => 'required|string|max:100',
     'genero' => 'required|string|max:100',
     'estado' => 'required|string|max:50',
-    'precio' => 'required|numeric|min:0',
     'lat' => 'nullable|numeric|between:-90,90',
     'lon' => 'nullable|numeric|between:-180,180',
     'etiqueta' => 'nullable|string|max:255',
