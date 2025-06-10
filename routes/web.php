@@ -29,7 +29,9 @@ Route::post('/chat/{user}', [ChatController::class, 'store'])->name('chat.store'
 Route::get('/mis-conversaciones', [ChatController::class, 'conversaciones'])->name('chat.conversaciones')->middleware('auth');
 Route::post('/pagar', [PagoController::class, 'pagar'])->name('pagar')->middleware('auth');
 Route::get('/pagar', [PagoController::class, 'formulario'])->name('pago.form')->middleware('auth');
+Route::middleware(['auth', 'IsAdmin'])->group(function () {
 Route::get("/usuarios", [AdminUserController::class, 'index'])->name('usuarios.index')->middleware('auth');
 Route::get('/usuarios/{user}/edit', [AdminUserController::class, 'edit'])->name('usuarios.edit')->middleware('auth');
 Route::put('/usuarios/{user}', [AdminUserController::class, 'update'])->name('usuarios.update')->middleware('auth');
 Route::delete('/usuarios/{user}', [AdminUserController::class, 'destroy'])->name('usuarios.destroy')->middleware('auth');
+});

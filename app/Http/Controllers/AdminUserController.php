@@ -14,13 +14,11 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-         if (Auth::check() && Auth::user()->is_admin) {
-         $usuarios = User::all();
-            return view('auth.admin.index', compact('usuarios'));
+         
+        $usuarios = User::all();
+        return view('auth.admin.index', compact('usuarios'));
     }
 
-    abort(403, 'Acceso denegado');
-    }
 
 
 
