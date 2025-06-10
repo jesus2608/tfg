@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -12,6 +13,15 @@ class RegisterController extends Controller
         return view('auth.register');
     }
      public function store(Request $request){
+        $validator = Validator::make($request->all(), [
+    'nombre' => 'required|string|max:255',
+    'email' => 'required|email|max:255|unique:users,email',
+    'contraseña' => 'required|string|confirmed',
+]);
+
+if ($validator->fails()) {
+    return redirect()->back()->withErrors($validator)->withInput();
+}
         $user = new User();
         $user->name = $request->nombre;
         $user->email = $request->email;
