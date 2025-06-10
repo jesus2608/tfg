@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\juegos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class JuegosController extends Controller
 {
@@ -44,6 +45,24 @@ public function juegos(){
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+    'titulo' => 'required|string|max:255',
+    'descripcion' => 'nullable|string',
+    'formato' => 'required|string|max:100',
+    'consola' => 'required|string|max:100',
+    'genero' => 'required|string|max:100',
+    'estado' => 'required|string|max:50',
+    'precio' => 'required|numeric|min:0',
+    'lat' => 'nullable|numeric|between:-90,90',
+    'lon' => 'nullable|numeric|between:-180,180',
+    'etiqueta' => 'nullable|string|max:255',
+    'usuario_id' => 'required|exists:users,id',
+    'foto1' => 'nullable|image|mimes:jpg|max:2048',
+]);
+
+if ($validator->fails()) {
+    return response()->json(['errors' => $validator->errors()], 422);
+}
         
         $juego = new juegos();
         $juego->titulo = $request->titulo;
@@ -88,6 +107,24 @@ public function juegos(){
      */
   public function update(Request $request, $id)
 {
+    $validator = Validator::make($request->all(), [
+    'titulo' => 'required|string|max:255',
+    'descripcion' => 'nullable|string',
+    'formato' => 'required|string|max:100',
+    'consola' => 'required|string|max:100',
+    'genero' => 'required|string|max:100',
+    'estado' => 'required|string|max:50',
+    'precio' => 'required|numeric|min:0',
+    'lat' => 'nullable|numeric|between:-90,90',
+    'lon' => 'nullable|numeric|between:-180,180',
+    'etiqueta' => 'nullable|string|max:255',
+    'usuario_id' => 'required|exists:users,id',
+    'foto1' => 'nullable|image|mimes:jpg|max:2048',
+]);
+
+if ($validator->fails()) {
+    return response()->json(['errors' => $validator->errors()], 422);
+}   
     $juego = juegos::findOrFail($id);
     $juego->titulo = $request->titulo;
     $juego->descripcion = $request->descripcion;
