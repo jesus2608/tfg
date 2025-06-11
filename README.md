@@ -1,4 +1,4 @@
-# Proyecto Tienda de Videojuegos (TFG)
+# Juegos Santana
 
 Este proyecto es una aplicación web completa desarrollada como Trabajo de Fin de Grado (TFG). Simula una plataforma de comercio electrónico para la venta de videojuegos, incorporando un panel de administración robusto, un sistema de chat en tiempo real entre usuarios y una pasarela de pago funcional.
 
