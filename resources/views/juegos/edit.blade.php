@@ -130,7 +130,7 @@
             </div>
 
             <div>
-                <label for="foto1" class="block font-semibold mb-1">Foto:</label>
+                <label for="foto_1" class="block font-semibold mb-1">Foto:</label>
                 <input type="file" name="foto1" id="foto1" class="block w-full text-sm text-blue-700 file:mr-4 file:py-2 file:px-4
                     file:rounded-full file:border-0 file:text-sm file:font-semibold
                     file:bg-blue-100 file:text-blue-700 hover:file:bg-blue-200" />
